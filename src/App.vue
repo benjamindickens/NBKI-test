@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <button v-if="!tableData" @click="generateDummyData(50)">СОЗДАТЬ</button>
+    <button v-if="!tableData" @click="generateDummyData(50)">Сгенерировать</button>
 
     <table v-else class="table">
       <thead>
@@ -14,13 +14,10 @@
       </thead>
       <tbody>
       <tr v-for="data in tableData" v-bind:key="data.name">
-        <th>{{ data.name }}</th>
-        <td>{{ data.price }}</td>
-        <td align="center">{{ data.amount }}</td>
-        <td>{{ data.value }}</td>
+        <td align="center" v-for="value in data">{{ value }}</td>
       </tr>
       <tr>
-        <th></th>
+        <td></td>
         <td></td>
         <td>всего:</td>
         <td>{{ totalSum }}</td>
